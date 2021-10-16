@@ -5,12 +5,13 @@ The Lecture 02 Advanced SQL  and Homework#1 SQL is  **Fall 2018**
 
 Other homework and projects are **Fall 2020**
 
-### Homework (Fall 2019)
+### Homework (Fall 2020)
 
 - [x] #1 SQL **(Fall 2018)**
-- [ ] #2 Index
+- [x] #2 Index
 
-### Project (Fall 2019)
+### Project (Fall 2020)
 
 - [x] #1 Buffer-Pool and additional Clock manager
+- [ ] #2 B+TREE
 
