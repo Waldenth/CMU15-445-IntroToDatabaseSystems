@@ -129,7 +129,7 @@ bool BufferPoolManager::UnpinPageImpl(page_id_t page_id, bool is_dirty) {
         thePage_in_frame->is_dirty_ = true;
     }
 
-    if (pin_count == 0)
+    if (pin_count <= 0)
         return false;
 
     thePage_in_frame->pin_count_--;
@@ -161,7 +161,7 @@ bool BufferPoolManager::FlushPageImpl(page_id_t page_id) {
 
     thePage_in_frame->is_dirty_ = false;
 
-    return false;
+    return true;
 }
 
 Page* BufferPoolManager::NewPageImpl(page_id_t* page_id) {
@@ -266,7 +266,7 @@ bool BufferPoolManager::DeletePageImpl(page_id_t page_id) {
 
     free_list_.push_back(frame_id);
 
-    return false;
+    return true;
 }
 
 void BufferPoolManager::FlushAllPagesImpl() {

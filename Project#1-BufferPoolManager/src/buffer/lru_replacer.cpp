@@ -71,14 +71,21 @@ void LRUReplacer::Pin(frame_id_t frame_id) {
 void LRUReplacer::Unpin(frame_id_t frame_id) {
     const std::lock_guard<mutex_t> guard(mutex);
 
-    auto hash_it = hash.find(frame_id);
+    /*
+    if (hash.size() >= capacity) {
+        return;
+    }
+    */
 
     // This step of logical processing is very IMPORTANT
     // BUT I DO NOT KNOW THE REASON
+    auto hash_it = hash.find(frame_id);
+
     if (hash_it != hash.end()) {
         return;
     }
 
+    /*
     if (hash_it == hash.end()) {
         while (hash.size() >= capacity) {
             frame_id_t need_del = lst.back();
@@ -87,6 +94,7 @@ void LRUReplacer::Unpin(frame_id_t frame_id) {
                 hash.erase(need_del);
         }
     }
+    */
 
     lst.push_back(frame_id);
     // std::prev(lst.end(),1) 返回lst.end()的前面的距离它为1的元素的迭代器
