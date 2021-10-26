@@ -17,5 +17,5 @@ Other homework are mainly **Fall 2019**
 ### Project (Fall 2020)
 
 - [x] #1 Buffer-Pool and additional Clock manager
-- [ ] #2 B+TREE
+- [x] #2 B+TREE
 
