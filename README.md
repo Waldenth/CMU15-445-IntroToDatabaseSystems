@@ -13,6 +13,7 @@ Other homework are mainly **Fall 2019**
 - [x] #2 Index 
 - [x] #2 Index **(Fall 2020)**
 - [x] #2 Index **(Fall 2018)**
+- [x] #3 Join Algorithms
 
 ### Project (Fall 2020)
 
