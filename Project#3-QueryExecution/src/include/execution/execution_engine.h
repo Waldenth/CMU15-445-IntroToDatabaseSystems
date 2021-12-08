@@ -21,6 +21,7 @@
 #include "execution/executor_factory.h"
 #include "execution/plans/abstract_plan.h"
 #include "storage/table/tuple.h"
+
 namespace bustub {
 class ExecutionEngine {
  public:
@@ -36,6 +37,10 @@ class ExecutionEngine {
 
     // prepare
     executor->Init();
+	
+	// insert / update / delete execution should not add result to result set
+    auto should_ignore_result_set = plan->GetType() == PlanType::Insert || plan->GetType() == PlanType::Update ||
+                                    plan->GetType() == PlanType::Delete;
 
     // execute
     try {
@@ -46,8 +51,13 @@ class ExecutionEngine {
           result_set->push_back(tuple);
         }
       }
+    } catch (TransactionAbortException &e) {
+      txn_mgr_->Abort(txn);
+      return false;
     } catch (Exception &e) {
       // TODO(student): handle exceptions
+      txn_mgr_->Abort(txn);
+      return false;
     }
 
     return true;
