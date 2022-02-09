@@ -19,4 +19,5 @@ Other homework are mainly **Fall 2019**
 
 - [x] #1 Buffer-Pool and additional Clock manager
 - [x] #2 B+TREE
+- [x] #3 Query Execution
 
